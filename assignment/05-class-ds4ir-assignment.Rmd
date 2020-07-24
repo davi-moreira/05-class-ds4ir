@@ -1,0 +1,24 @@
+---
+title: "05-class-ds4ir-assignment"
+author: "seu nome aqui"
+date: "`r format(Sys.time(), '%d-%m-%Y')`"
+output: 
+  html_document:
+    number_sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Assignment {-}
+
+Você deve reproduzir os três mapas apresentados na vinheta do pacote [`geobr`](https://cran.r-project.org/web/packages/geobr/vignettes/intro_to_geobr.html). *Have fun!*
+
+# Produza um documento .html com o resultado de sua análise
+
+**Observação**: Não se esqueça de colocar seu nome.
+
+
+
