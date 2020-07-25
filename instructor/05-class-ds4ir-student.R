@@ -281,7 +281,7 @@ troops %>% ggplot() +
  geom_path(aes(x = long, y = lat, group = group, color = direction, size = survivors),
            lineend = "round") + # linhas arredondadas para melhor efeito
  scale_size(range = c(0.5, 15)) + # desagrega o número de categorias na escala
- scale_colour_manual(values = c("#DFC17E", "#252523")) + # cores originais
+ scale_colour_manual(values = c("#e6ccac", "#252523")) + # cores originais
  labs(x = NULL, y = NULL) + # tira os rótulos dos eixos
  guides(color = FALSE, size = FALSE) # tira os tiques dos eixos
 # ```
@@ -295,7 +295,7 @@ ggplot() +
  geom_text_repel(data = cities, aes(x = long, y = lat, label = city), # nomes das cidades
                  color = "red", size = 3, fontface = "bold") + 
  scale_size(range = c(0.5, 15)) + 
- scale_colour_manual(values = c("#DFC17E", "#252523")) +
+ scale_colour_manual(values = c("#e6ccac", "#252523")) +
  labs(x = NULL, y = NULL) + 
  guides(color = FALSE, size = FALSE) +
  theme_void() # tira todos os elementos do gráfico
@@ -309,7 +309,7 @@ grafico_marcha <- ggplot() +
  geom_text_repel(data = cities, aes(x = long, y = lat, label = city), # nomes das cidades
                  color = "red", size = 3, fontface = "bold") + 
  scale_size(range = c(0.5, 15)) + 
- scale_colour_manual(values = c("#DFC17E", "#252523")) +
+ scale_colour_manual(values = c("#e6ccac", "#252523")) +
  labs(x = NULL, y = NULL) + 
  guides(color = FALSE, size = FALSE) +
  theme_void() # tira todos os elementos do gráfico
@@ -365,7 +365,7 @@ europa %>% ggmap() +
  geom_path(data = troops, aes(x = long, y = lat, group = group, color = direction, size = survivors),
            lineend = "round") +
  scale_size(range = c(0.5, 5)) + 
- scale_colour_manual(values = c("#DFC17E", "#252523")) +
+ scale_colour_manual(values = c("#e6ccac", "#252523")) +
  guides(color = FALSE, size = FALSE) +  theme_nothing()
 # ```
 # 
@@ -376,7 +376,7 @@ europa %>% ggmap() +
                               color = direction, size = survivors),
            lineend = "round") +
  scale_size(range = c(0.5, 5)) + 
- scale_colour_manual(values = c("#DFC17E", "#252523")) +
+ scale_colour_manual(values = c("#e6ccac", "#252523")) +
  guides(color = FALSE, size = FALSE) +
  theme_nothing()
 # ```
@@ -392,7 +392,7 @@ mapa <- ggmap(area_minard) +
  geom_text_repel(data = cities, aes(x = long, y = lat, label = city), # nomes das cidades
                  color = "red", size = 3, fontface = "bold") + 
  scale_size(range = c(0.5, 15)) + 
- scale_colour_manual(values = c("#DFC17E", "#252523")) +
+ scale_colour_manual(values = c("#e6ccac", "#252523")) +
  labs(x = NULL, y = NULL) + 
  guides(color = FALSE, size = FALSE) + theme_nothing()
 
@@ -407,7 +407,8 @@ ambos <- gtable_rbind(ggplotGrob(mapa), ggplotGrob(grafico_temperaturas))
 # Ajustando paineis
 paineis <- ambos$layout$t[grep("panel", ambos$layout$name)]
 map.panel.height <- ambos$heights[paineis][1]
-ambos$heights[paineis] <- unit(c(map.panel.height, 0.1), "null")
+# ambos$heights[paineis] <- unit(c(map.panel.height, 0.1), "null")
+ambos$heights[paineis] <- unit(c(unlist(map.panel.height)[1], 0.1), "null")
 
 # Exibindo ambos os gráficos juntos
 grid::grid.newpage()
